@@ -26,17 +26,21 @@ To run Poly-zkSNARK-Circuit, you need to have the following installed on your sy
 
 ### Installing
 
-To get started with the project, follow these steps:
+1. Clone the repository:
 
-1. clone the circom repository :
-    `git clone https://github.com/iden3/circom.git`
+   ```bash
+    git clone https://github.com/iden3/circom.git
    
 2. Install the required dependencies :
-   `cargo build --release`
-   `cargo install --path circom`
+
+   ```bash
+    cargo build --release
+    cargo install --path circom
    
 3. Installing snarkjs :
-   `npm install -g snarkjs`
+
+   ```bash
+   npm install -g snarkjs
 
 
 ## Usage
