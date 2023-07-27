@@ -25,7 +25,7 @@ const config: HardhatUserConfig = {
   networks : {
     mumbai: {
       url: `https://rpc.ankr.com/polygon_mumbai`,
-      accounts: [`24cd23a482e9ab5ec92e505539114b9bfb42aff73dde59512d095502d78cdaaa`]
+      accounts: [`YOUR_PRIVATE_KEY`]
     },
   },
   circom: {
