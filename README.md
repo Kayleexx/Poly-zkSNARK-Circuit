@@ -29,7 +29,7 @@ To run Poly-zkSNARK-Circuit, you need to have the following installed on your sy
 1. Clone the repository:
 
    ```bash
-    git clone https://github.com/iden3/circom.git
+    https://github.com/Kayleexx/Poly-zkSNARK-Circuit.git
    
 2. Install the required dependencies :
 
