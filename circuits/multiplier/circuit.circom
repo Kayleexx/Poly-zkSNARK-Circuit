@@ -8,9 +8,7 @@ template CustomCircuit () {
 
   // Signals from gates
   signal x;
-
-  // Final signal output
-  signal output y;
+  signal y;
 
   // Component gates used to create a custom circuit
   component andGate = AND();
@@ -18,16 +16,15 @@ template CustomCircuit () {
   component orGate = OR();
 
   // Circuit logic
-andGate.A <== a;
-andGate.B <== b;
-x <== andGate.X; // Connect the andGate output to x
+  andGate.A <== a;
+  andGate.B <== b;
+  x <== andGate.X; // Connect the AND gate output to x
 
-notGate.B <== x;
-orGate.X <== a; // Connect OR gate input X to signal 'a'
-orGate.Y <== b; // Connect OR gate input Y to signal 'b'
+  notGate.B <== x;
+  y <== notGate.Y; // Connect the NOT gate output to y
 
-y <== orGate.Q; // Connect the OR gate output to y
-
+  orGate.X <== a; // Connect OR gate input X to signal 'a'
+  orGate.Y <== b; // Connect OR gate input Y to signal 'b'
 }
 
 template AND() {
@@ -42,7 +39,7 @@ template NOT() {
   signal input B;
   signal output Y;
 
-  Y <== 1 + B - 2*B;
+  Y <== 1 - B;
 }
 
 template OR() {
@@ -54,3 +51,4 @@ template OR() {
 }
 
 component main = CustomCircuit();
+
