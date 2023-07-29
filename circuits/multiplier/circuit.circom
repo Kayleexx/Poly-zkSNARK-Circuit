@@ -3,12 +3,12 @@ pragma circom 2.0.0;
 template CustomCircuit () {  
 
   // Signal inputs
-  signal input a;
-  signal input b;
+  signal input A;
+  signal input B;
 
   // Signals from gates
-  signal x;
-  signal y;
+  signal X;
+  signal Y;
 
   // Component gates used to create a custom circuit
   component andGate = AND();
@@ -16,15 +16,18 @@ template CustomCircuit () {
   component orGate = OR();
 
   // Circuit logic
-  andGate.A <== a;
-  andGate.B <== b;
-  x <== andGate.X; // Connect the AND gate output to x
+  andGate.A <== A;
+  andGate.B <== B;
+  X <== andGate.X; // Connect the AND gate output to X
 
-  notGate.B <== x;
-  y <== notGate.Y; // Connect the NOT gate output to y
+  notGate.B <== B;
+  Y <== notGate.Y; // Connect the NOT gate output to Y
 
-  orGate.X <== a; // Connect OR gate input X to signal 'a'
-  orGate.Y <== b; // Connect OR gate input Y to signal 'b'
+  orGate.X <== X; // Connect OR gate input X to signal 'X'
+  orGate.Y <== Y; // Connect OR gate input Y to signal 'Y'
+
+  // final output signal Q is connected to the output of the OR gate
+  Q <== orGate.Q;
 }
 
 template AND() {
@@ -32,7 +35,7 @@ template AND() {
   signal input B;
   signal output X;
 
-  X <== A*B;
+  X <== A * B;
 }
 
 template NOT() {
@@ -47,8 +50,9 @@ template OR() {
   signal input Y;
   signal output Q;
 
-  Q <== X + Y - X*Y;
+  Q <== X + Y - X * Y;
 }
 
 component main = CustomCircuit();
+
 
